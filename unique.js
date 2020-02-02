@@ -7,3 +7,10 @@ function unique (array) {
         return obj.hasOwnProperty(typeof item + JSON.stringify(item)) ? false : (obj[typeof item + JSON.stringify(item)] = true)
     })
 }
+// 交集
+// var arr = firstArr.filter((item) => new Set(secArr).has(item))
+// 并集
+// [...new set(...arr1,... arr2)]
+// 差集
+// var arr = firstArr.filter((item) => !new Set(secArr).has(item))
+
