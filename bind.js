@@ -2,7 +2,7 @@
 Function.prototype.call = function(context, ...arg) {
     context = context || window
     context.fn = this;
-    result = context.fn(...arg)
+    var result = context.fn(...arg)
     delete context.fn;
     return result
 }
@@ -43,5 +43,12 @@ Function.prototype.bind = function (context) {
     fNOP.prototype = this.prototype;
     fBound.prototype = new fNOP();
     return fBound;
+}
+function nowF () {
+    var obj = new Object()
+    var Constructor = [].shift.apply(arguments)
+    obj.__proto__ = Constructor.prototype
+    Constructor.apply(obj, arguments)
+    return obj
 }
 
